@@ -6,7 +6,7 @@
 
     <groupId>is.apim.selfsignup.handler</groupId>
     <artifactId>is-apim-selfsignup-handler</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>bundle</packaging>
     <name>is-apim-selfsignup-handler</name>
 

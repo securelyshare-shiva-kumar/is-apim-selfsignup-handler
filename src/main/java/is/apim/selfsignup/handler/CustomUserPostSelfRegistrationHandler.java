@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CustomUserPostSelfRegistrationHandler extends AbstractEventHandler {
-    private static final String TEST_ROLE = "TEST";
+    private static final String SUBSCRIBER_ROLE = "Internal/subscriber";
     private static final String SELF_SIGNUP_ROLE = "Internal/selfsignup";
     private static final int HIGH_PRIORITY = 250;
 
@@ -67,8 +67,8 @@ public class CustomUserPostSelfRegistrationHandler extends AbstractEventHandler 
                 //This code segment will execute if the user is in the userstore
                 List<String> roleList = Arrays.asList(userStoreManager.getRoleListOfUser(userName));//You can get all the assigned roles of the user as a list
 
-                if (roleList.contains(SELF_SIGNUP_ROLE) && !roleList.contains(TEST_ROLE)) { //Internal/selfsignup role will assign when doing the user self registration
-                    String[] rolesThatNeedToAdd = {TEST_ROLE}; //You can add user roles that need to assign to the user
+                if (roleList.contains(SELF_SIGNUP_ROLE) && !roleList.contains(SUBSCRIBER_ROLE)) { //Internal/selfsignup role will assign when doing the user self registration
+                    String[] rolesThatNeedToAdd = {SUBSCRIBER_ROLE}; //You can add user roles that need to assign to the user
                     String[] rolesThatNeedToRemove = {}; //You can add user roles that need to unassigned from the user
                     userStoreManager.updateRoleListOfUser(userName, rolesThatNeedToRemove, rolesThatNeedToAdd);
                 }
